@@ -1,7 +1,7 @@
 import axios from 'axios';
 // const axios = require('axios').default;
 
-export const getPictures = async query => {
+export const getPictures = async (query, page) => {
   const config = {
     url: 'https://pixabay.com/api/',
     params: {
@@ -17,6 +17,7 @@ export const getPictures = async query => {
   try {
     if (query === undefined) query = config.params.q;
     else config.params.q = query;
+    if (page !== 1) config.params.page = page;
     const response = await axios(config);
     // console.log(response.data);
     return response.data;

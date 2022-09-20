@@ -1,25 +1,42 @@
 import { Component } from 'react';
-
+import sprite from '../../services/icons/sprite.svg';
+import { HeaderBar, Form, FormBtn, Input, Icon } from './Searchbar.styled';
 class Searchbar extends Component {
+  state = {
+    query: '',
+  };
+  handleChange = event => {
+    this.setState({ query: event.target.value });
+  };
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const { query } = this.state;
+    this.props.setQuery(query);
+  };
   render() {
-    const { handleFormSubmit, handleInput } = this.props;
     return (
-      <header className="searchbar">
-        <form className="form" onSubmit={handleFormSubmit}>
-          <input
+      <HeaderBar>
+        {/* <img src="" alt="" /> */}
+
+        <Form onSubmit={this.handleFormSubmit}>
+          <Input
             className="input"
             type="text"
             autoComplete="off"
             autoFocus
-            value={this.props.input}
-            onChange={handleInput}
+            name="query"
+            value={this.state.query}
+            onChange={this.handleChange}
             placeholder="Search images and photos"
           />
-          <button type="submit" className="button">
-            <span className="button-label">Search</span>
-          </button>
-        </form>
-      </header>
+          <FormBtn type="submit">
+            <Icon>
+              <use href={sprite + '#icon-search'}></use>
+            </Icon>
+            {/* <BtnLabel className="button-label">Search</BtnLabel> */}
+          </FormBtn>
+        </Form>
+      </HeaderBar>
     );
   }
 }

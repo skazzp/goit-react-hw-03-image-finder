@@ -1,12 +1,19 @@
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+import { ImageList } from './ImageGallery.styled';
 
-const ImageGallery = ({ data }) => {
+const ImageGallery = ({ data, toggleModal }) => {
   return (
-    <ul className="gallery">
+    <ImageList>
       {data.map(elem => {
-        return <ImageGalleryItem key={elem.id} element={elem} />;
+        return (
+          <ImageGalleryItem
+            key={elem.id}
+            element={elem}
+            toggleModal={toggleModal}
+          />
+        );
       })}
-    </ul>
+    </ImageList>
   );
 };
 

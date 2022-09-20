@@ -1,10 +1,11 @@
-const ImageGalleryItem = ({ element }) => {
-  console.log(element);
+import { GalleryItem, Image } from './ImageGalleryItem.styled';
+
+const ImageGalleryItem = ({ element, toggleModal }) => {
   const { webformatURL, tags } = element;
   return (
-    <li className="gallery-item">
-      <img src={webformatURL} alt={tags} />
-    </li>
+    <GalleryItem onClick={() => toggleModal(element)}>
+      <Image src={webformatURL} alt={tags} />
+    </GalleryItem>
   );
 };
 
