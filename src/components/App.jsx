@@ -21,14 +21,15 @@ export class App extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (this.state.query !== prevState.query) {
       this.setState({ isLoading: true, response: [], page: 1 });
-      const { query, page } = this.state;
-      const response = await API.getPictures(query, page);
+      const { query } = this.state;
+      const response = await API.getPictures(query, 1);
       this.setState({ response: response.hits, isLoading: false });
-      console.log(query, response);
+      // console.log(query, response);
     }
     if (
       this.state.page !== prevState.page &&
-      this.state.query === prevState.query
+      this.state.query === prevState.query &&
+      this.state.page !== 1
     ) {
       this.setState({ isLoading: true });
       const { query, page } = this.state;
