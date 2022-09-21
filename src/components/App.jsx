@@ -24,7 +24,6 @@ export class App extends Component {
       const { query } = this.state;
       const response = await API.getPictures(query, 1);
       this.setState({ response: response.hits, isLoading: false });
-      // console.log(query, response);
     }
     if (
       this.state.page !== prevState.page &&
@@ -54,7 +53,6 @@ export class App extends Component {
   };
   render() {
     const { response, modalData, isModalOpen } = this.state;
-    // console.log(modalData);
     return (
       <>
         <Searchbar setQuery={this.setQuery} />

@@ -16,7 +16,6 @@ class Searchbar extends Component {
   render() {
     return (
       <HeaderBar>
-        {/* <img src="" alt="" /> */}
 
         <Form onSubmit={this.handleFormSubmit}>
           <Input
@@ -33,7 +32,6 @@ class Searchbar extends Component {
             <Icon>
               <use href={sprite + '#icon-search'}></use>
             </Icon>
-            {/* <BtnLabel className="button-label">Search</BtnLabel> */}
           </FormBtn>
         </Form>
       </HeaderBar>

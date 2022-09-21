@@ -1,19 +1,5 @@
 import { ModalPic, Overlay } from './Modal.styled';
-
-// const Modal = ({ toggleModal, largeImageURL }) => {
-//   return (
-//     <Overlay>
-//       <ModalPic>
-//         <img src={largeImageURL} alt="" />
-//       </ModalPic>
-//     </Overlay>
-//   );
-// };
-
-// export default Modal;
 import { Component } from 'react';
-
-// const modalContainer = document.getElementById('modal');
 
 class Modal extends Component {
   state = {
@@ -21,10 +7,7 @@ class Modal extends Component {
   };
 
   componentDidMount() {
-    // console.log(this.modalRef.current);
-    // const modalImage = this.modalRef.current;
     window.addEventListener('keydown', this.handleClose);
-    // modalImage.addEventListener("load", loadingImage);
   }
 
   componentWillUnmount() {
@@ -35,11 +18,6 @@ class Modal extends Component {
     if (e.target === e.currentTarget || e.code === 'Escape') {
       this.props.toggleModal();
     }
-  };
-
-  loadingImage = () => {
-    console.log('LOADED!!');
-    this.setState({ isLoading: false });
   };
 
   render() {
